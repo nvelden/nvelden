@@ -1,6 +1,6 @@
 """Generate the animated banner for the GitHub profile README.
 
-The right half shows an annotated MS/MS spectrum of Glu-fibrinopeptide B
+The right half shows an MS/MS spectrum (unlabelled; b ions amber, y ions green) of Glu-fibrinopeptide B
 (EGVNDNEEGFFSAR), the classic mass spectrometer calibration standard. The b
 and y ion m/z values are computed from monoisotopic residue masses (singly
 charged). Relative intensities are illustrative: y ions dominate, as is
@@ -9,7 +9,7 @@ typical for a tryptic peptide with a C-terminal arginine.
 Peaks sweep in from low to high m/z, then keep fluctuating gently like a live
 acquisition. Pure CSS animation, so it works inside GitHub's <img> sandbox.
 
-Usage: python3 scripts/make_banner.py  -> assets/banner-light-v5.svg, banner-dark-v5.svg
+Usage: python3 scripts/make_banner.py  -> assets/banner-light-v6.svg, banner-dark-v6.svg
 Bump VERSION whenever the banner changes: GitHub caches images by URL, so a new
 filename (and the matching paths in README.md) is what makes the change show up.
 """
@@ -17,7 +17,7 @@ filename (and the matching paths in README.md) is what makes the change show up.
 import random
 from pathlib import Path
 
-VERSION = "v5"
+VERSION = "v6"
 W, H = 880, 250
 
 PEPTIDE = "EGVNDNEEGFFSAR"
@@ -36,8 +36,7 @@ B_INT = {2: 24, 3: 30, 4: 14, 5: 10, 6: 9, 7: 7, 8: 6, 9: 6, 10: 5, 11: 5, 12: 4
 # Spectrum panel (right half; the text block lives at x < 430).
 PX0, PX1 = 462, 864          # x range of the m/z axis
 MZ0, MZ1 = 100, 1500
-PEAK_MAX = 150               # px height of a 100% peak (from the bottom edge)
-LADDER_Y = 34                # baseline of the sequence ladder
+PEAK_MAX = 200               # px height of a 100% peak (from the bottom edge)
 
 THEMES = {
     "light": dict(bg="#F7F3E9", ink="#1C2620", mute="#72796F", b="#D97706", y="#3E5838",
@@ -82,7 +81,7 @@ def render(theme):
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
         f'role="img" aria-label="Niels van der Velden: data scientist, R/Shiny, Python, mass spectrometry. '
-        f'Annotated MS/MS spectrum of Glu-fibrinopeptide B showing b and y ions.">',
+        f'MS/MS spectrum of Glu-fibrinopeptide B, b ions in amber and y ions in green.">',
         "<style>",
         # grow in once (sweep by m/z), then fluctuate forever
         ".p{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);"
@@ -117,53 +116,6 @@ def render(theme):
             f'fill="{color[ion["kind"]]}" fill-opacity="{op}" '
             f'style="animation-duration:.7s,{live_dur:.2f}s;animation-delay:{d1:.2f}s,{d2:.2f}s"/>')
     out.append("</g>")
-
-    # labels: strongest first; skip any whose box would hit a placed label or a
-    # peak (at full height) other than its own
-    def top_of(ion):
-        return H - ion["inten"] / 100 * PEAK_MAX
-
-    real = [i for i in ions if i["kind"] != "n"]
-    boxes, placed = [], []
-    for ion in sorted((i for i in ions if i["label"]), key=lambda d: -d["inten"]):
-        x, y = x_of(ion["mz"]), top_of(ion) - 4
-        half = len(ion["label"]) * 2.9 + 1
-        box = (x - half, y - 9, x + half, y + 1)
-        hits_label = any(box[0] < b[2] and b[0] < box[2] and box[1] < b[3] and b[1] < box[3] for b in boxes)
-        hits_peak = any(o is not ion and box[0] - 1 < x_of(o["mz"]) < box[2] + 1 and top_of(o) < box[3]
-                        for o in real)
-        if hits_label or hits_peak:
-            continue
-        boxes.append(box)
-        placed.append(ion)
-        out.append(
-            f'<text class="t" x="{x:.1f}" y="{y:.1f}" text-anchor="middle" '
-            f'font-family="{mono}" font-size="9.5" fill="{color[ion["kind"]]}" '
-            f'style="animation-delay:{delay(ion["mz"]) + 0.5:.2f}s">{ion["label"]}</text>')
-
-    # sequence ladder with cleavage marks for the labelled b / y ions
-    labelled = {(i["kind"], i["n"]) for i in placed}
-    step = 22
-    lx0 = PX1 - step * (len(PEPTIDE) - 1) - 6
-    out.append(f'<g class="t" style="animation-delay:.3s" font-family="{mono}" font-size="13" '
-               f'fill="{t["ink"]}" text-anchor="middle">')
-    for i, aa in enumerate(PEPTIDE):
-        out.append(f'<text x="{lx0 + i * step:.1f}" y="{LADDER_Y}">{aa}</text>')
-    out.append("</g>")
-    out.append(f'<g class="t" style="animation-delay:1.2s" fill="none" stroke-width="1.4">')
-    n = len(PEPTIDE)
-    for i in range(1, n):
-        cx = lx0 + (i - 0.5) * step
-        top, bot = LADDER_Y - 15, LADDER_Y + 5
-        if ("y", n - i) in labelled:  # y ion: hook at top pointing right (C-terminal side)
-            out.append(f'<path d="M{cx:.1f} {(top + bot) / 2:.1f} V{top} h5" stroke="{t["y"]}"/>')
-        if ("b", i) in labelled:      # b ion: hook at bottom pointing left (N-terminal side)
-            out.append(f'<path d="M{cx:.1f} {(top + bot) / 2:.1f} V{bot} h-5" stroke="{t["b"]}"/>')
-    out.append("</g>")
-    out.append(
-        f'<text class="t" x="{PX1}" y="{LADDER_Y + 20}" text-anchor="end" font-family="{mono}" '
-        f'font-size="9.5" fill="{t["mute"]}" style="animation-delay:1.4s">'
-        f'<tspan fill="{t["b"]}">b ions</tspan> · <tspan fill="{t["y"]}">y ions</tspan> · Glu-fibrinopeptide B</text>')
 
     out += [
         f'<text class="t" x="40" y="88" font-family="{serif}" font-size="40" fill="{t["ink"]}" '

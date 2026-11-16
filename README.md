@@ -1,13 +1,9 @@
 <a href="https://www.nielsvandervelden.com/">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark-v5.svg" />
-  <img src="assets/banner-light-v5.svg" alt="Niels van der Velden · Data Scientist · R / Shiny · Python · Mass Spectrometry · Bermuda · annotated MS/MS spectrum of Glu-fibrinopeptide B" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark-v6.svg" />
+  <img src="assets/banner-light-v6.svg" alt="Niels van der Velden · Data Scientist · R / Shiny · Python · Mass Spectrometry · Bermuda · MS/MS spectrum of Glu-fibrinopeptide B" width="100%" />
 </picture>
 </a>
-
-I turn messy biological data into analysis pipelines, Shiny apps, reports and dashboards that people actually use. PhD from ETH Zürich, five years in biotech at Molecular Partners, now consulting independently.
-
----
 
 ## What I Do
 
