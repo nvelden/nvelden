@@ -1,34 +1,78 @@
-### Hi, I'm Niels 🍄
+# Niels van der Velden
 
-I'm a data scientist with a life sciences background, based in Bermuda. I turn messy biological data into analysis pipelines, Shiny apps, reports and dashboards. I mostly work in R, Python and SQL.
+<p align="left">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=23272F&width=480&lines=Data+Scientist;R+%2F+Shiny+Developer;Mass+Spectrometry+Specialist" alt="Typing SVG" />
+</p>
 
-- 🔬 PhD from ETH Zürich on fungal peptide natural products: how the enzyme OphA methylates its own backbone to make omphalotin
-- 🧪 Spent 5 years at Molecular Partners as an Expert Scientist, leading mass spectrometry projects and building an automated analysis platform
-- 💼 Now an independent consultant
-- 🌐 [nielsvandervelden.com](https://www.nielsvandervelden.com/) · [LinkedIn](https://www.linkedin.com/in/nielsva)
+Bermuda &nbsp;·&nbsp; [Website](https://www.nielsvandervelden.com/) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/nielsva) &nbsp;·&nbsp; [Publications](https://www.nielsvandervelden.com/publications)
 
-#### What I build
+---
 
-| Project | What it does |
-|---|---|
-| [**geneviewer**](https://github.com/nvelden/geneviewer) | Publication-ready gene cluster maps from GenBank, FASTA and GFF files. Available for [R](https://github.com/nvelden/geneviewer), [Python](https://github.com/nvelden/geneviewer-py) and [JavaScript](https://github.com/nvelden/geneviewer-js) · [docs](https://nvelden.github.io/geneviewer-docs/) |
-| [**NGLVieweR**](https://github.com/nvelden/NGLVieweR) | Interactive 3D protein structure viewer for R and Shiny. Also available as a [Shiny UI](https://github.com/nvelden/shinyNGLVieweR) and as a [browser-only Shinylive app](https://nvelden.github.io/shinyliveNGLVieweR/) |
-| [**shinyblocks**](https://github.com/nvelden/shinyblocks) | Composable UI blocks for Shiny dashboards, inspired by shadcn/ui |
-| [**Bermuda Gov Salaries**](https://www.nielsvandervelden.com/projects) | Public salary transparency dashboard for the Bermuda government (Next.js + D3) |
-| [**Shinylive FASTA tools**](https://github.com/nvelden/shinyFASTAapps) | Small bioinformatics apps that run entirely in the browser through WebAssembly: [FASTA processor](https://nvelden.github.io/FASTA_processor/), [merge FASTA](https://nvelden.github.io/merge-fasta-files/), [FASTA to CSV](https://nvelden.github.io/fasta-to-csv/), [fragment finder](https://nvelden.github.io/fragment-finder/) |
-| [**Shiny + SQL**](https://github.com/nvelden/sql_table) | Examples of persistent storage in Shiny: [CRUD app](https://github.com/nvelden/Employee_Directory_CRUD) and an [editable table backed by Cloudflare D1](https://github.com/nvelden/shinylive-d1-datatable) |
+I turn messy biological data into analysis pipelines, Shiny apps, reports and dashboards that people actually use. PhD in life sciences from ETH Zürich, then five years as an Expert Scientist at Molecular Partners, where I led mass spectrometry projects and helped build an automated analysis platform. Now consulting independently.
 
-#### Selected publications
+---
 
-- [Autocatalytic backbone N-methylation in a family of ribosomal peptide natural products](https://www.nature.com/articles/nchembio.2393), *Nature Chemical Biology* (2017)
-- [A molecular mechanism for the enzymatic methylation of nitrogen atoms within peptide bonds](https://www.science.org/doi/10.1126/sciadv.aat2720), *Science Advances* (2018)
-- [More on my website](https://www.nielsvandervelden.com/publications)
+## What I Do
 
-#### Tools
+- **Data Science**: end-to-end workflows from raw data to clean analysis, models and reports, mostly in R and Python, with a focus on reproducibility
+- **Shiny & Web Apps**: interactive dashboards and tools, including apps that run entirely in the browser with Shinylive and WebAssembly
+- **Bioinformatics & Mass Spectrometry**: gene cluster visualization, protein structure viewers and peptide identification tooling
 
-![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white)
-![Shiny](https://img.shields.io/badge/Shiny-1A162D?logo=rstudioide&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?logo=postgresql&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![D3](https://img.shields.io/badge/D3.js-F9A03C?logo=d3dotjs&logoColor=white)
+---
+
+## Featured Projects
+
+**[geneviewer](https://github.com/nvelden/geneviewer)** &nbsp;·&nbsp; `R` `Python` `JavaScript` `D3`
+
+Publication-ready gene cluster maps from GenBank, FASTA and GFF files, with alignment results drawn on gene arrow maps. One D3 rendering core ([geneviewer-js](https://github.com/nvelden/geneviewer-js)) shared by the R and [Python](https://github.com/nvelden/geneviewer-py) packages. [Docs](https://nvelden.github.io/geneviewer-docs/)
+
+<br/>
+
+**[NGLVieweR](https://github.com/nvelden/NGLVieweR)** &nbsp;·&nbsp; `R` `Shiny` `WebGL`
+
+Interactive 3D protein structure viewer for R and Shiny, built on NGL. Comes with a [Shiny UI](https://github.com/nvelden/shinyNGLVieweR) and a [browser-only Shinylive version](https://nvelden.github.io/shinyliveNGLVieweR/).
+
+<br/>
+
+**[shinyblocks](https://github.com/nvelden/shinyblocks)** &nbsp;·&nbsp; `R` `Shiny` `WebAssembly`
+
+Composable modern UI blocks for Shiny dashboards, inspired by shadcn/ui. Built on [r-universe](https://github.com/nvelden/nvelden.r-universe.dev), including WebAssembly binaries.
+
+<br/>
+
+**[Bermuda Gov Salaries](https://www.nielsvandervelden.com/projects)** &nbsp;·&nbsp; `Next.js` `D3`
+
+Public salary transparency dashboard that shows structural patterns in Bermuda government pay.
+
+<br/>
+
+**[Shinylive FASTA tools](https://github.com/nvelden/shinyFASTAapps)** &nbsp;·&nbsp; `R` `Python` `Shinylive`
+
+Small bioinformatics apps that need no server: [FASTA processor](https://nvelden.github.io/FASTA_processor/), [merge FASTA](https://nvelden.github.io/merge-fasta-files/), [FASTA to CSV](https://nvelden.github.io/fasta-to-csv/) and [fragment finder](https://nvelden.github.io/fragment-finder/).
+
+---
+
+## Tech Stack
+
+<p>
+  <img src="https://skillicons.dev/icons?i=r,py,js,nextjs,html,css,cloudflare,git&theme=light" />
+</p>
+
+**Data & Science**
+
+![Shiny](https://img.shields.io/badge/Shiny-4AA4DE?style=flat-square&logo=rstudioide&logoColor=white)
+![tidyverse](https://img.shields.io/badge/tidyverse-1A162D?style=flat-square&logo=r&logoColor=white)
+![tidymodels](https://img.shields.io/badge/tidymodels-CA225E?style=flat-square&logo=r&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+![D3.js](https://img.shields.io/badge/D3.js-F9A03C?style=flat-square&logo=d3dotjs&logoColor=white)
+![Mass Spectrometry](https://img.shields.io/badge/Mass%20Spectrometry-2E7D32?style=flat-square&logoColor=white)
+
+---
+
+## Origin Story
+
+I'm a mycologist at heart. My PhD at ETH Zürich was about *Omphalotus olearius*, a mushroom whose enzyme OphA methylates its own backbone to make omphalotin, a cyclic peptide that kills nematodes ([Nature Chemical Biology, 2017](https://www.nature.com/articles/nchembio.2393)). These days I build tools that turn raw lab data into something people can read and use.
+
+---
+
+*Currently consulting independently · [nielsvandervelden.com](https://www.nielsvandervelden.com/)*
