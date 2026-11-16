@@ -1,13 +1,9 @@
-# Niels van der Velden
-
+<a href="https://www.nielsvandervelden.com/">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
-  <img src="assets/banner-light.svg" alt="Data Scientist · R / Shiny · Python · Mass Spectrometry · mycologist at heart" width="100%" />
+  <img src="assets/banner-light.svg" alt="Niels van der Velden · Data Scientist · R / Shiny · Python · Mass Spectrometry · mycologist at heart · Bermuda" width="100%" />
 </picture>
-
-Bermuda &nbsp;·&nbsp; [Website](https://www.nielsvandervelden.com/) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/nielsva) &nbsp;·&nbsp; [Publications](https://www.nielsvandervelden.com/publications)
-
----
+</a>
 
 I turn messy biological data into analysis pipelines, Shiny apps, reports and dashboards that people actually use. PhD from ETH Zürich, five years in biotech at Molecular Partners, now consulting independently.
 
@@ -66,4 +62,4 @@ After my PhD I spent five years at [Molecular Partners](https://www.molecularpar
 
 ---
 
-*Currently consulting independently · [nielsvandervelden.com](https://www.nielsvandervelden.com/)*
+*Currently consulting independently* &nbsp;·&nbsp; [Website](https://www.nielsvandervelden.com/) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/nielsva) &nbsp;·&nbsp; [Publications](https://www.nielsvandervelden.com/publications)

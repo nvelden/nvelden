@@ -13,7 +13,7 @@ import math
 import random
 from pathlib import Path
 
-W, H = 880, 210
+W, H = 880, 250
 SEED = 7
 FRAME_S = 0.03            # seconds per simulation frame on playback
 MAX_BRANCHES = 70
@@ -21,13 +21,14 @@ BRANCH_CHANCE = 0.94
 START_RADIUS = 1.7
 INITIAL_BRANCHES = 18
 MAX_FRAMES = 190          # ~5.7 s of growth
-SEED_XY = (W * 0.80, H * 0.52)
+SEED_XY = (W * 0.80, H * 0.45)
+BASELINE = H - 22         # x-axis of the mass spectrum
 
 THEMES = {
     "light": dict(bg="#F7F3E9", ink="#1C2620", mute="#72796F",
-                  hypha="#3E5838", hypha_op=0.32, spore="#D97706", rule="rgba(28,38,32,0.14)"),
+                  hypha="#3E5838", hypha_op=0.32, spore="#D97706", peak="#1C2620", peak_op=0.15, rule="rgba(28,38,32,0.14)"),
     "dark": dict(bg="#0D110F", ink="#EDE6D3", mute="#C4BFA9",
-                 hypha="#9BD17C", hypha_op=0.30, spore="#F4B942", rule="rgba(237,230,211,0.12)"),
+                 hypha="#9BD17C", hypha_op=0.30, spore="#F4B942", peak="#EDE6D3", peak_op=0.13, rule="rgba(237,230,211,0.12)"),
 }
 
 
@@ -96,6 +97,23 @@ def simulate():
     return [b for b in branches if len(b.pts) > 3], spores
 
 
+def spectrum():
+    """Stick spectrum: isotope clusters (peaks 1 Da apart, decaying) plus noise.
+
+    Returns (x, height, width, group); peaks in a group rise and fall together.
+    """
+    rng = random.Random(11)
+    peaks = []
+    for g in range(16):
+        x0 = rng.uniform(24, W - 60)
+        base = rng.uniform(40, 150) if g % 3 else rng.uniform(140, 185)
+        for k, rel in enumerate((1, 0.62, 0.27, 0.09)):
+            peaks.append((x0 + k * 6.5, base * rel, 2.2, g))
+    for _ in range(90):
+        peaks.append((rng.uniform(16, W - 16), rng.uniform(2, 14), 1.2, 16 + rng.randrange(6)))
+    return peaks
+
+
 def path_d(pts):
     # Keep every 2nd point: halves file size, invisible at this stroke width.
     keep = pts[::2] + ([pts[-1]] if (len(pts) - 1) % 2 else [])
@@ -114,9 +132,13 @@ def render(theme, branches, spores):
            "animation:pop .6s ease-out forwards,glow 3.2s ease-in-out infinite}",
            "@keyframes pop{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.6)}100%{opacity:.85;transform:scale(1)}}",
            "@keyframes glow{0%,100%{opacity:.85}50%{opacity:.25}}",
+           ".p{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.04);"
+           "animation:ion ease-in-out infinite alternate}",
+           "@keyframes ion{0%{transform:scaleY(.04)}35%{transform:scaleY(1)}55%{transform:scaleY(.55)}"
+           "75%{transform:scaleY(.9)}100%{transform:scaleY(.2)}}",
            ".t{opacity:0;animation:fade 1.2s ease-out forwards}",
            "@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}",
-           "@media (prefers-reduced-motion:reduce){.h,.s,.t{animation:none;opacity:1;stroke-dashoffset:0}}",
+           "@media (prefers-reduced-motion:reduce){.h,.s,.t,.p{animation:none;opacity:1;stroke-dashoffset:0;transform:none}}",
            "</style>",
            "<defs>",
            '<linearGradient id="fadeL" x1="0" x2="1"><stop offset="0.30" stop-color="#fff" stop-opacity="0"/>'
@@ -126,6 +148,12 @@ def render(theme, branches, spores):
            f'<stop offset="1" stop-color="{t["spore"]}" stop-opacity="0"/></radialGradient>',
            "</defs>",
            f'<rect width="{W}" height="{H}" rx="12" fill="{t["bg"]}"/>',
+           f'<g fill="{t["peak"]}" fill-opacity="{t["peak_op"]}">',
+           *[f'<rect class="p" x="{x - w / 2:.1f}" y="{BASELINE - h:.1f}" width="{w}" height="{h:.1f}" '
+             f'style="animation-duration:{2.6 + (g * 0.37) % 2.4:.2f}s;animation-delay:-{(g * 0.61) % 3:.2f}s"/>'
+             for x, h, w, g in spectrum()],
+           f'<rect x="16" y="{BASELINE}" width="{W - 32}" height="1" fill-opacity="0.22"/>',
+           "</g>",
            f'<g mask="url(#m)" stroke="{t["hypha"]}" stroke-opacity="{t["hypha_op"]}">']
     for b in branches:
         delay = b.born * FRAME_S
@@ -143,12 +171,16 @@ def render(theme, branches, spores):
     serif = "Fraunces, Georgia, 'Times New Roman', serif"
     mono = "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
     out += [
-        f'<text class="t" x="40" y="92" font-family="{serif}" font-size="34" fill="{t["ink"]}" '
-        f'style="animation-delay:.3s">Data Scientist</text>',
-        f'<text class="t" x="40" y="128" font-family="{mono}" font-size="15" fill="{t["mute"]}" '
-        f'style="animation-delay:1.1s">R / Shiny · Python · Mass Spectrometry</text>',
-        f'<text class="t" x="40" y="156" font-family="{mono}" font-size="13" fill="{t["spore"]}" '
-        f'style="animation-delay:1.9s">mycologist at heart</text>',
+        f'<text class="t" x="40" y="72" font-family="{serif}" font-size="40" fill="{t["ink"]}" '
+        f'style="animation-delay:.2s">Niels van der Velden</text>',
+        f'<text class="t" x="42" y="108" font-family="{serif}" font-size="22" fill="{t["ink"]}" '
+        f'style="animation-delay:.8s">Data Scientist</text>',
+        f'<text class="t" x="42" y="136" font-family="{mono}" font-size="14" fill="{t["mute"]}" '
+        f'style="animation-delay:1.3s">R / Shiny · Python · Mass Spectrometry</text>',
+        f'<text class="t" x="42" y="160" font-family="{mono}" font-size="13" fill="{t["spore"]}" '
+        f'style="animation-delay:1.8s">mycologist at heart</text>',
+        f'<text class="t" x="42" y="196" font-family="{mono}" font-size="12.5" fill="{t["mute"]}" '
+        f'style="animation-delay:2.3s">Bermuda · nielsvandervelden.com</text>',
         "</svg>",
     ]
     return "\n".join(out)
