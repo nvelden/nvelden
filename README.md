@@ -1,8 +1,9 @@
 # Niels van der Velden
 
-<p align="left">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=23272F&width=480&lines=Data+Scientist;R+%2F+Shiny+Developer;Mass+Spectrometry+Specialist" alt="Typing SVG" />
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
+  <img src="assets/banner-light.svg" alt="Data Scientist · R / Shiny · Python · Mass Spectrometry · mycologist at heart" width="100%" />
+</picture>
 
 Bermuda &nbsp;·&nbsp; [Website](https://www.nielsvandervelden.com/) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/nielsva) &nbsp;·&nbsp; [Publications](https://www.nielsvandervelden.com/publications)
 
