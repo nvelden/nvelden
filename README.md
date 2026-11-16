@@ -60,4 +60,11 @@ Now I consult independently, turning raw lab data into analyses, apps and report
 
 ---
 
-*Currently consulting independently* &nbsp;·&nbsp; [Website](https://www.nielsvandervelden.com/) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/nielsva) &nbsp;·&nbsp; [Publications](https://www.nielsvandervelden.com/publications)
+## Work With Me
+
+I'm available for consulting and freelance projects: mass spectrometry data analysis, R/Shiny and Python apps, automated reporting and data pipelines. Open to collaborations too.
+
+[![Contact form](https://img.shields.io/badge/Get%20in%20touch-D97706?style=for-the-badge&logo=maildotru&logoColor=white)](https://www.nielsvandervelden.com/contact/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/nielsva)
+[![Website](https://img.shields.io/badge/Website-3E5838?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.nielsvandervelden.com/)
+[![Publications](https://img.shields.io/badge/Publications-72796F?style=for-the-badge&logo=googlescholar&logoColor=white)](https://www.nielsvandervelden.com/publications)
