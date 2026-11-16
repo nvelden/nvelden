@@ -8,7 +8,7 @@ Bermuda &nbsp;·&nbsp; [Website](https://www.nielsvandervelden.com/) &nbsp;·&nb
 
 ---
 
-I turn messy biological data into analysis pipelines, Shiny apps, reports and dashboards that people actually use. PhD in life sciences from ETH Zürich, then five years as an Expert Scientist at Molecular Partners, where I led mass spectrometry projects and helped build an automated analysis platform. Now consulting independently.
+I turn messy biological data into analysis pipelines, Shiny apps, reports and dashboards that people actually use. PhD from ETH Zürich, five years in biotech at Molecular Partners, now consulting independently.
 
 ---
 
@@ -17,6 +17,28 @@ I turn messy biological data into analysis pipelines, Shiny apps, reports and da
 - **Data Science**: end-to-end workflows from raw data to clean analysis, models and reports, mostly in R and Python, with a focus on reproducibility
 - **Shiny & Web Apps**: interactive dashboards and tools, including apps that run entirely in the browser with Shinylive and WebAssembly
 - **Bioinformatics & Mass Spectrometry**: gene cluster visualization, protein structure viewers and peptide identification tooling
+
+---
+
+## Experience
+
+**Independent Consultant** &nbsp;·&nbsp; Bermuda
+
+Data science consulting: data extraction and tidying, analysis, automated reporting, machine learning models and web apps.
+
+<br/>
+
+**Expert Scientist, Mass Spectrometry** &nbsp;·&nbsp; [Molecular Partners](https://www.molecularpartners.com/) &nbsp;·&nbsp; 5 years
+
+- Coordinated all projects at this Swiss biotech that involved mass spectrometry
+- Developed an automated data analysis platform for the company's mass spectrometry measurements
+- Many of the apps and tools I've built on the side relate to this work
+
+<br/>
+
+**PhD, Microbiology** &nbsp;·&nbsp; ETH Zürich
+
+Ribosomally synthesized peptides (borosins) from the fungus *Omphalotus olearius*, in the group of Prof. Dr. Markus Aebi under Prof. Dr. Markus Künzler.
 
 ---
 
