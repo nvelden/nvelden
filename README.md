@@ -20,28 +20,6 @@ I turn messy biological data into analysis pipelines, Shiny apps, reports and da
 
 ---
 
-## Experience
-
-**Independent Consultant** &nbsp;·&nbsp; Bermuda
-
-Data science consulting: data extraction and tidying, analysis, automated reporting, machine learning models and web apps.
-
-<br/>
-
-**Expert Scientist, Mass Spectrometry** &nbsp;·&nbsp; [Molecular Partners](https://www.molecularpartners.com/) &nbsp;·&nbsp; 5 years
-
-- Coordinated all projects at this Swiss biotech that involved mass spectrometry
-- Developed an automated data analysis platform for the company's mass spectrometry measurements
-- Many of the apps and tools I've built on the side relate to this work
-
-<br/>
-
-**PhD, Microbiology** &nbsp;·&nbsp; ETH Zürich
-
-Ribosomally synthesized peptides (borosins) from the fungus *Omphalotus olearius*, in the group of Prof. Dr. Markus Aebi under Prof. Dr. Markus Künzler.
-
----
-
 ## Featured Projects
 
 **[geneviewer](https://github.com/nvelden/geneviewer)** &nbsp;·&nbsp; `R` `Python` `JavaScript` `D3`
@@ -81,7 +59,9 @@ Composable modern UI blocks for Shiny dashboards, inspired by shadcn/ui. Built o
 
 ## Origin Story
 
-I'm a mycologist at heart. My PhD at ETH Zürich was about *Omphalotus olearius*, a mushroom whose enzyme OphA methylates its own backbone to make omphalotin, a cyclic peptide that kills nematodes ([Nature Chemical Biology, 2017](https://www.nature.com/articles/nchembio.2393)). These days I build tools that turn raw lab data into something people can read and use.
+I'm a mycologist at heart. My PhD at ETH Zürich was about *Omphalotus olearius*, a mushroom whose enzyme OphA methylates its own backbone to make omphalotin, a cyclic peptide that kills nematodes ([Nature Chemical Biology, 2017](https://www.nature.com/articles/nchembio.2393)).
+
+After my PhD I spent five years at [Molecular Partners](https://www.molecularpartners.com/), a Swiss biotech, as an Expert Scientist in mass spectrometry. I coordinated every project there that involved mass spectrometry and developed an automated data analysis platform for our measurements. Many of the apps and tools I've built on the side relate to that work. These days I consult independently and build tools that turn raw lab data into something people can read and use.
 
 ---
 
