@@ -52,9 +52,11 @@ Composable modern UI blocks for Shiny dashboards, inspired by shadcn/ui. Built o
 
 ## Origin Story
 
-My PhD at ETH Zürich was about *Omphalotus olearius*, a mushroom whose enzyme OphA methylates its own backbone to make omphalotin, a cyclic peptide that kills nematodes ([Nature Chemical Biology, 2017](https://www.nature.com/articles/nchembio.2393)).
+I started out in the lab. For my PhD at ETH Zürich I studied *Omphalotus olearius*, the jack-o'-lantern mushroom, and worked out how its enzyme OphA methylates its own backbone to make omphalotin, a cyclic peptide that kills nematodes ([Nature Chemical Biology, 2017](https://www.nature.com/articles/nchembio.2393)).
 
-After my PhD I spent five years at [Molecular Partners](https://www.molecularpartners.com/), a Swiss biotech, as an Expert Scientist in mass spectrometry. I coordinated every project there that involved mass spectrometry and developed an automated data analysis platform for our measurements. Many of the apps and tools I've built on the side relate to that work. These days I consult independently and build tools that turn raw lab data into something people can read and use.
+From there I moved to [Molecular Partners](https://www.molecularpartners.com/), a Swiss biotech, where I spent five years as an Expert Scientist in mass spectrometry. I coordinated all of our mass spectrometry projects and built an automated platform to analyse the data, and much of what I've built on the side is related to that work.
+
+Now I consult independently, turning raw lab data into analyses, apps and reports that people can use.
 
 ---
 
