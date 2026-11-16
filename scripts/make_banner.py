@@ -5,7 +5,7 @@ decaying in height) plus low noise peaks, rising from the bottom edge. Each
 cluster rises and falls on its own rhythm. Pure CSS animation, so it works
 inside GitHub's <img> sandbox without JavaScript.
 
-Usage: python3 scripts/make_banner.py  -> assets/banner-light-v3.svg, banner-dark-v3.svg
+Usage: python3 scripts/make_banner.py  -> assets/banner-light-v4.svg, banner-dark-v4.svg
 Bump VERSION whenever the banner changes: GitHub caches images by URL, so a new
 filename (and the matching paths in README.md) is what makes the change show up.
 """
@@ -13,7 +13,9 @@ filename (and the matching paths in README.md) is what makes the change show up.
 import random
 from pathlib import Path
 
-VERSION = "v3"
+VERSION = "v4"
+TEXT_RIGHT = 440           # text block spans x < TEXT_RIGHT ...
+TEXT_BOTTOM = 180          # ... and y < TEXT_BOTTOM; peaks there must stay below it
 W, H = 880, 250
 
 THEMES = {
@@ -29,6 +31,8 @@ def spectrum():
     for g in range(18):
         x0 = rng.uniform(20, W - 40)
         base = rng.uniform(50, 160) if g % 3 else rng.uniform(170, 215)
+        if x0 - 4 < TEXT_RIGHT:  # never reach the text, even at full height
+            base = min(base, (H - TEXT_BOTTOM) * rng.uniform(0.55, 0.92))
         for k, rel in enumerate((1, 0.62, 0.27, 0.09)):
             peaks.append((x0 + k * 6.5, base * rel, 2.4, g))
     for _ in range(110):
