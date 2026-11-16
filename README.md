@@ -38,18 +38,6 @@ Interactive 3D protein structure viewer for R and Shiny, built on NGL. Comes wit
 
 Composable modern UI blocks for Shiny dashboards, inspired by shadcn/ui. Built on [r-universe](https://github.com/nvelden/nvelden.r-universe.dev), including WebAssembly binaries.
 
-<br/>
-
-**[Bermuda Gov Salaries](https://www.nielsvandervelden.com/projects)** &nbsp;·&nbsp; `Next.js` `D3`
-
-Public salary transparency dashboard that shows structural patterns in Bermuda government pay.
-
-<br/>
-
-**[Shinylive FASTA tools](https://github.com/nvelden/shinyFASTAapps)** &nbsp;·&nbsp; `R` `Python` `Shinylive`
-
-Small bioinformatics apps that need no server: [FASTA processor](https://nvelden.github.io/FASTA_processor/), [merge FASTA](https://nvelden.github.io/merge-fasta-files/), [FASTA to CSV](https://nvelden.github.io/fasta-to-csv/) and [fragment finder](https://nvelden.github.io/fragment-finder/).
-
 ---
 
 ## Tech Stack
