@@ -1,7 +1,7 @@
 <a href="https://www.nielsvandervelden.com/">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
-  <img src="assets/banner-light.svg" alt="Niels van der Velden · Data Scientist · R / Shiny · Python · Mass Spectrometry · mycologist at heart · Bermuda" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark-v2.svg" />
+  <img src="assets/banner-light-v2.svg" alt="Niels van der Velden · Data Scientist · R / Shiny · Python · Mass Spectrometry · Bermuda" width="100%" />
 </picture>
 </a>
 

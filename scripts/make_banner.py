@@ -6,7 +6,7 @@ they reach one. The simulation runs once with a fixed seed and is written
 out as an SVG in which every branch draws itself in (CSS stroke-dashoffset),
 so it animates inside GitHub's <img> sandbox without JavaScript.
 
-Usage: python3 scripts/make_banner.py  -> assets/banner-light.svg, banner-dark.svg
+Usage: python3 scripts/make_banner.py  -> assets/banner-light-v2.svg, banner-dark-v2.svg (bump the suffix to bust GitHub image cache)
 """
 
 import math
@@ -177,10 +177,8 @@ def render(theme, branches, spores):
         f'style="animation-delay:.8s">Data Scientist</text>',
         f'<text class="t" x="42" y="136" font-family="{mono}" font-size="14" fill="{t["mute"]}" '
         f'style="animation-delay:1.3s">R / Shiny · Python · Mass Spectrometry</text>',
-        f'<text class="t" x="42" y="160" font-family="{mono}" font-size="13" fill="{t["spore"]}" '
-        f'style="animation-delay:1.8s">mycologist at heart</text>',
-        f'<text class="t" x="42" y="196" font-family="{mono}" font-size="12.5" fill="{t["mute"]}" '
-        f'style="animation-delay:2.3s">Bermuda · nielsvandervelden.com</text>',
+        f'<text class="t" x="42" y="168" font-family="{mono}" font-size="12.5" fill="{t["mute"]}" '
+        f'style="animation-delay:1.8s">Bermuda · nielsvandervelden.com</text>',
         "</svg>",
     ]
     return "\n".join(out)
@@ -191,7 +189,7 @@ def main():
     outdir = Path(__file__).resolve().parent.parent / "assets"
     outdir.mkdir(exist_ok=True)
     for theme in THEMES:
-        p = outdir / f"banner-{theme}.svg"
+        p = outdir / f"banner-{theme}-v2.svg"
         p.write_text(render(theme, branches, spores))
         print(f"{p.name}: {p.stat().st_size // 1024} KB, {len(branches)} branches, {len(spores)} spores")
 
